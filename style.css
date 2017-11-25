@@ -1,59 +1,78 @@
+h1 {
+    display: inline;
+    border: 2px solid darkgray;
+    padding: 10px;
+    background: white;
+    display: flex;
+    justify-content: center;
+}
+
 html {
     background-color: #DCDCDC;
     font-family: 'Arial';
 }
 
 #yukonimage {
+    max-width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    cursor: pointer;
     padding: 10px;
-    padding-right: 75px;
 }
 
-head {
+img:hover {
+    cursor: pointer;
+}
+
+#welcome {
+    color: #000000;
     text-align: center;
-    background-color: #F5F5F5;
 }
 
 body {
-    padding-left: 75px;
-    text-align: left;
 	color: #71706E;
 	margin: 0px;
 	width: auto;
 	font-size: 16px;
 }
 
-#button {
+button {
     border: 1px outset darkgray;
     background-color: gray;
-    height: 35px;
-    width: 10%;
     color: white;
     cursor: pointer;
 }
-#button:hover {
+
+button:hover {
    background-color: darkgray;
    color: white;
 }
 
+button[value="send"] {
+    height: 32px;
+    width: 10%;
+}
+
+button[value="chat"] {
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    width: 37%;
+    font-size: 30px;
+}
+
 #message {
     display: inline;
-    border: 2px solid lightgray;
+    border: 2px solid darkgray;
     padding: 10px;
     background: white;
 }
 
-
 input[type="text"] {
-    padding: 10px;
+    padding: 7px;
     border: 2px solid #ccc;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
-
 
 input[type="text"]:focus {
     border-color: #fff;
