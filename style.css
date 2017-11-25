@@ -19,7 +19,6 @@ html {
 
 #yukonimage {
     max-width: 100%;
-
     display: flex;
     justify-content: center;
     float: center;
@@ -35,13 +34,65 @@ img:hover {
     text-align: center;
 }
 
-body {
-	color: #71706E;
-	margin: 0px;
-	width: auto;
-	font-size: 16px;
+
+#chatbox {
+    width: 500px;
+    min-width: 390px;
+    height: 600px;
+    background: #fff;
+    padding: 25px;
+    margin: 20px auto;
+    box-shadow: 0 3px #ccc;
 }
 
+#chatlog {
+    padding: 10px;
+    width: 100%;
+    height: 500px;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#chatlog::-webkit-scrollbar {
+    width: 10px;
+}
+
+#chatlog::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .1);
+}
+
+#chat {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+#message {
+    width: 70%;
+    padding: 15px;
+    margin: 5px 10px 0;
+    background: darkgray;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.chatform {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.chatform textarea {
+    background: #FBFBFB;
+    width: 75%;
+    height: 50px;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    resize: none;
+}
 button {
     border: 1px outset darkgray;
     background-color: gray;
@@ -49,45 +100,11 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-   background-color: darkgray;
-   color: white;
-}
-
-button[value="chat"] {
-    display: block;
-    margin: 0 auto;
-    height: 100px;
-    width: 37%;
-    font-size: 30px;
-}
-
 button[value="send"] {
-    float: left;
-    height: 32px;
-    width: 10%;
+    height: 60px;
+    width: 25%;
 }
 
-button[value="home"] {
-    float: right;
-    height: 32px;
-    width: 10%;
-}
-
-#message {
-    display: inline;
-    border: 2px solid darkgray;
-    padding: 10px;
-    background: white;
-}
-
-input[type="text"] {
-    padding: 7px;
-    border: 2px solid #ccc;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-input[type="text"]:focus {
-    border-color: #fff;
+button:hover {
+    color: white;
 }
