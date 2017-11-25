@@ -7,6 +7,11 @@ h1 {
     justify-content: center;
 }
 
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 html {
     background-color: #DCDCDC;
     font-family: 'Arial';
@@ -14,8 +19,10 @@ html {
 
 #yukonimage {
     max-width: 100%;
+
     display: flex;
     justify-content: center;
+    float: center;
     padding: 10px;
 }
 
@@ -47,17 +54,24 @@ button:hover {
    color: white;
 }
 
-button[value="send"] {
-    height: 32px;
-    width: 10%;
-}
-
 button[value="chat"] {
     display: block;
     margin: 0 auto;
     height: 100px;
     width: 37%;
     font-size: 30px;
+}
+
+button[value="send"] {
+    float: left;
+    height: 32px;
+    width: 10%;
+}
+
+button[value="home"] {
+    float: right;
+    height: 32px;
+    width: 10%;
 }
 
 #message {
