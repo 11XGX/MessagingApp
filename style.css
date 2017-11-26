@@ -16,6 +16,7 @@ a {
 html {
     background-color: #DCDCDC;
     font-family: 'Arial';
+    height: 100%;
 }
 
 #yukonimage {
@@ -57,6 +58,7 @@ img:hover {
 }
 
 #chatlog::-webkit-scrollbar {
+    position: fixed;
     width: 10px;
 }
 
@@ -91,7 +93,7 @@ img:hover {
     background: #FBFBFB;
     width: 75%;
     height: 50px;
-    border: 2px solid #eee;
+    border: 2px solid lightgray;
     border-radius: 10px;
     resize: none;
 }
@@ -102,6 +104,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: silver;
+}
+
 button[id="send"] {
     height: 60px;
     width: 25%;
@@ -109,10 +115,11 @@ button[id="send"] {
 }
 
 button[id="chat"] {
-    height: 60px;
-    width: 25%;
-}
-
-button:hover {
-    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 50px;
+    height: 100px;
+    width: 50%;
+    border-radius: 10px;
 }

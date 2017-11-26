@@ -11,7 +11,7 @@
         </div>
         <h1>Chat</h1>
     </head>
-    <body>
+    <body background="gray-background.jpg">
         <div id="chatbox">
 
             <div id = "chatlog">
@@ -21,13 +21,14 @@
 
             <form>
                 <div class="chatform">
-                    <textarea></textarea>
-                    <button id="send">Send</button>
+                    <textarea id="textarea" placeholder="Type a message here..."></textarea>
+                    <!--- Return false to prevent the page from being reloaded. --->
+                    <button id="send" type="button" onclick="getText(textarea); return false">Send</button>
                     <script src="app.js"></script>
                 </div>
             </form>
 
         </div>
     </body>
-    <br /> <br /> <hr />
+    <hr />
 </html>
