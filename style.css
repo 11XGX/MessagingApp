@@ -1,10 +1,11 @@
 h1 {
     display: inline;
     border: 2px solid darkgray;
-    padding: 10px;
+    padding: 5px;
     background: white;
     display: flex;
     justify-content: center;
+    border-radius: 10px;
 }
 
 a {
@@ -43,6 +44,7 @@ img:hover {
     padding: 25px;
     margin: 20px auto;
     box-shadow: 0 3px #ccc;
+    border-radius: 10px;
 }
 
 #chatlog {
@@ -90,7 +92,7 @@ img:hover {
     width: 75%;
     height: 50px;
     border: 2px solid #eee;
-    border-radius: 3px;
+    border-radius: 10px;
     resize: none;
 }
 button {
@@ -100,7 +102,13 @@ button {
     cursor: pointer;
 }
 
-button[value="send"] {
+button[id="send"] {
+    height: 60px;
+    width: 25%;
+    border-radius: 10px;
+}
+
+button[id="chat"] {
     height: 60px;
     width: 25%;
 }
