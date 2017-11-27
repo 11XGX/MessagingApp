@@ -1,8 +1,9 @@
 h1 {
     display: inline;
-    border: 2px solid darkgray;
+    border: 2px outset #C9FFE5;
     padding: 5px;
-    background: white;
+    background: #FFFFFF;
+    color: #000000;
     display: flex;
     justify-content: center;
     border-radius: 10px;
@@ -14,9 +15,13 @@ a {
 }
 
 html {
-    background-color: #DCDCDC;
+    background-color: #000000;
     font-family: 'Arial';
     height: 100%;
+}
+
+body {
+    min-height: 100%;
 }
 
 #yukonimage {
@@ -58,7 +63,6 @@ img:hover {
 }
 
 #chatlog::-webkit-scrollbar {
-    position: fixed;
     width: 10px;
 }
 
@@ -77,7 +81,7 @@ img:hover {
     width: 70%;
     padding: 15px;
     margin: 5px 10px 0;
-    background: darkgray;
+    background: #89CFF0;
     border-radius: 10px;
     color: #fff;
     font-size: 18px;
@@ -90,22 +94,23 @@ img:hover {
 }
 
 .chatform textarea {
-    background: #FBFBFB;
+    background: #DBE9F4;
     width: 75%;
     height: 50px;
-    border: 2px solid lightgray;
+    border: 2px solid #C9FFE5;
     border-radius: 10px;
     resize: none;
 }
 button {
-    border: 1px outset darkgray;
-    background-color: gray;
+    border: 2px outset #C9FFE5;
+    background-color: #7CB9E8;
     color: white;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: silver;
+    background-color: #C9FFE5;
+    color: #000000;
 }
 
 button[id="send"] {
@@ -114,12 +119,39 @@ button[id="send"] {
     border-radius: 10px;
 }
 
+button[id="username"] {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 30px;
+    height: 70px;
+    width: 30%;
+    border-radius: 10px;
+}
+
 button[id="chat"] {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    font-size: 50px;
-    height: 100px;
-    width: 50%;
+    font-size: 25px;
+    height: 70px;
+    width: 30%;
     border-radius: 10px;
+}
+#enter_username {
+    display: flex;
+    justify-content: center;
+}
+
+#text_username {
+    display: flex;
+    justify-content: center;
+    background: #FBFBFB;
+    width: 30%;
+    height: 70px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    resize: none;
+    text-align: center;
+    font-size: 25px;
 }

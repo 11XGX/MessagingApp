@@ -3,18 +3,21 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <head>
-        <title>Welcome - Yukon</title>
+        <title>Enter Username - Yukon</title>
         <div id="yukonimage">
                 <a href="index.html">
                     <img src="Yukon.png"alt="Welcome to Yukon!" />
                 </a>
         </div>
-        <h1>Welcome to Yukon!</h1>
+        <h1>Username</h1>
     </head>
     <body background="space.jpg">
         <form>
-            <a href="username.html">
-                <button id="username" type="button">Chat</button>
+            <div id="enter_username">
+                <input type="text" id="text_username" placeholder="Type your username here..."></input>
+            </div>
+            <a href="chat.html">
+                <button id="chat" type="button" onclick="Username(text_username); return false">Go to Yukon Chat</button>
             </a>
         </form>
     </body>

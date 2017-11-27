@@ -11,7 +11,7 @@
         </div>
         <h1>Chat</h1>
     </head>
-    <body background="gray-background.jpg">
+    <body background="space.jpg">
         <div id="chatbox">
 
             <div id = "chatlog">
@@ -31,4 +31,19 @@
         </div>
     </body>
     <hr />
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDnVJu4eoOK8CjZww21XuaBXePfhNUZgDg",
+    authDomain: "yukon-11.firebaseapp.com",
+    databaseURL: "https://yukon-11.firebaseio.com",
+    projectId: "yukon-11",
+    storageBucket: "",
+    messagingSenderId: "431803869203"
+  };
+  firebase.initializeApp(config);
+  console.log(firebase.apps);
+</script>
 </html>
