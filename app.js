@@ -39,3 +39,6 @@ function create(htmlStr) {
 function scrollToBottom() {
     document.getElementById("chatlog").scrollTop = document.getElementById("chatlog").scrollHeight;
 }
+
+// TODO: Collect message data from firebase upon loading the page and display all messages on news feed.
+// TODO: If there is an added message, get new messages on update and post on local news feed.

@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script>
+
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyDnVJu4eoOK8CjZww21XuaBXePfhNUZgDg",
+            authDomain: "yukon-11.firebaseapp.com",
+            databaseURL: "https://yukon-11.firebaseio.com",
+            projectId: "yukon-11",
+            storageBucket: "",
+            messagingSenderId: "431803869203"
+        };
+        firebase.initializeApp(config);
+
+    </script>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <head>
         <title>Chat - Yukon</title>
         <div id="yukonimage">
-                <a href="index.html">
-                    <img src="Yukon.png" alt="Yukon"/>
-                </a>
+            <a href="index.html">
+                <img src="Yukon.png" alt="Yukon"/>
+            </a>
         </div>
         <h1>Chat</h1>
     </head>
+
     <body background="space.jpg">
         <div id="chatbox">
 
@@ -30,20 +47,6 @@
 
         </div>
     </body>
-    <hr />
 
-<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDnVJu4eoOK8CjZww21XuaBXePfhNUZgDg",
-    authDomain: "yukon-11.firebaseapp.com",
-    databaseURL: "https://yukon-11.firebaseio.com",
-    projectId: "yukon-11",
-    storageBucket: "",
-    messagingSenderId: "431803869203"
-  };
-  firebase.initializeApp(config);
-  console.log(firebase.apps);
-</script>
+    <hr />
 </html>
