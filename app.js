@@ -1,9 +1,9 @@
-function getText(text) {
+function submission(text) {
     // Get the message from the textarea and store it in a variable 'msg'.
     var msg = document.getElementById("textarea");
 
-    // If message is empty, alert no input!
-    if (msg.value == "") {
+    // If message is empty, there is no inputted message!
+    if (!$.trim($("#textarea").val())) {
         alert("Please enter a message!");
         return false;
     };
@@ -17,9 +17,6 @@ function getText(text) {
         Message: msg.value,
         Time: datetime
     });
-
-    // Scroll to bottom of chatbox.
-    scrollToBottom();
 
     // Remove the text area content as the message has been stored.
     textarea.value = "";
@@ -35,18 +32,19 @@ function getDate() {
 
     // Get the date and time of the message being sent.
     var currentDate = new Date();
-
     var day = currentDate.getDate();
     var monthIndex = currentDate.getMonth();
     var year = currentDate.getFullYear();
-
     var dateTime = day + ' ' + monthNames[monthIndex] + ' ' + year + ' @ ';
+
+    // Adjust for an hour value less than 10 and pad a 0 to the left of the number.
     if (currentDate.getHours() < 10) {
         dateTime = dateTime + "0" + currentDate.getHours() + ":";
     } else {
         dateTime = dateTime + currentDate.getHours() + ":";
     }
 
+    // Adjust for a minute value less than 10 and pad a 0 to the left of the number.
     if (currentDate.getMinutes() < 10) {
         dateTime = dateTime + "0" + currentDate.getMinutes();
     } else {
@@ -78,6 +76,23 @@ $(document).ready(function() {
         var postedMessage = snap.child("Message").val();
         var time = snap.child("Time").val();
         $("#chat").append("<div id=message>"+postedMessage+"</div>");
-        $("#chat").append("<br /><div id=messageTime>"+time+"</div>");
+        $("#chat").append("<br /><div id=messageTime>"+time+"</div><br />");
+        scrollToBottom();
     });
+});
+
+function enterSubmission(event) {
+    var code = (event.keyCode ? event.keyCode : event.which);
+    if (code == 13) {
+        submission(textarea);
+        event.preventDefault();
+    }
+}
+
+$('#textarea').keydown(function(e) {
+  if (e.keyCode == 13 && e.ctrlKey) {
+      $(this).val(function(i,val){
+            return val + "\n";
+      });
+  }
 });
