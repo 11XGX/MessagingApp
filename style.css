@@ -130,7 +130,34 @@ button[id="chat"] {
 }
 
 #messageTime {
-    margin: 5px 10px 0;
     color: gray;
     font-size: 10px;
+}
+
+.upvote {
+    position: relative;
+    display: inline-block;
+    padding-top: 2%;
+}
+.upvote .img-top {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+.upvote:hover .img-top {
+    display: inline;
+}
+
+.downvote {
+    position: relative;
+    display: inline-block;
+    padding-top: 2%;
+}
+.downvote .img-top {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+.downvote:hover .img-top {
+    display: inline;
 }

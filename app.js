@@ -15,7 +15,8 @@ function submission(text) {
     // Store the message and date/time of the message in the firebase.
     messagesRef.push().set({
         Message: msg.value,
-        Time: datetime
+        Time: datetime,
+        Vote: 0
     });
 
     // Remove the text area content as the message has been stored.
@@ -75,8 +76,12 @@ $(document).ready(function() {
     messageRef.on("child_added", snap => {
         var postedMessage = snap.child("Message").val();
         var time = snap.child("Time").val();
-        $("#chat").append("<div id=message>"+postedMessage+"</div>");
-        $("#chat").append("<br /><div id=messageTime>"+time+"</div><br />");
+        var votecount = snap.child("Vote").val();
+        $("#chat").append("<div id=message>" + postedMessage + "</div>");
+        $("#chat").append("<div class=upvote><img src='Images/upvote.png' alt='Upvote Back'><img src='Images/upvote_hover.png' class='img-top' alt='Upvote Front'></div>");
+        $("#chat").append("<div id=votecount>"+votecount+"</div>");
+        $("#chat").append("<div class=downvote><img src='Images/downvote.png' alt='Downvote Back'><img src='Images/downvote_hover.png' class='img-top' alt='Downvote Front'></div>");
+        $("#chat").append("<br /><div id=messageTime>" + time + "</div><br />");
         scrollToBottom();
     });
 });
@@ -90,9 +95,9 @@ function enterSubmission(event) {
 }
 
 $('#textarea').keydown(function(e) {
-  if (e.keyCode == 13 && e.ctrlKey) {
-      $(this).val(function(i,val){
+    if (e.keyCode == 13 && e.ctrlKey) {
+        $(this).val(function(i,val){
             return val + "\n";
-      });
-  }
+        });
+    }
 });
