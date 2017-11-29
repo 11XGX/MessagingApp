@@ -8,21 +8,52 @@ function getText(text) {
         return false;
     };
 
-    // Insert the string as a div message and add to the chatbox.
-    create(msg.value);
-    var fragment = create("<div id=message>"+msg.value+"</div>");
-    document.getElementById("chat").appendChild(fragment);
+    datetime = getDate();
 
     // Create a new reference to a location (folder) named messages.
-    let messagesRef = firebase.database().ref("messages");
-    // Create a new message in the firebase.
-    messagesRef.push().set(msg.value);
+    let messagesRef = firebase.database().ref("Messages");
+    // Store the message and date/time of the message in the firebase.
+    messagesRef.push().set({
+        Message: msg.value,
+        Time: datetime
+    });
 
     // Scroll to bottom of chatbox.
     scrollToBottom();
 
     // Remove the text area content as the message has been stored.
     textarea.value = "";
+}
+
+function getDate() {
+    var monthNames = [
+        "Jan", "Feb", "Mar",
+        "Apr", "May", "Jun", "Jul",
+        "Aug", "Sep", "Oct",
+        "Nov", "Dec"
+    ];
+
+    // Get the date and time of the message being sent.
+    var currentDate = new Date();
+
+    var day = currentDate.getDate();
+    var monthIndex = currentDate.getMonth();
+    var year = currentDate.getFullYear();
+
+    var dateTime = day + ' ' + monthNames[monthIndex] + ' ' + year + ' @ ';
+    if (currentDate.getHours() < 10) {
+        dateTime = dateTime + "0" + currentDate.getHours() + ":";
+    } else {
+        dateTime = dateTime + currentDate.getHours() + ":";
+    }
+
+    if (currentDate.getMinutes() < 10) {
+        dateTime = dateTime + "0" + currentDate.getMinutes();
+    } else {
+        dateTime = dateTime + currentDate.getMinutes();
+    }
+
+    return dateTime;
 }
 
 function create(htmlStr) {
@@ -40,5 +71,13 @@ function scrollToBottom() {
     document.getElementById("chatlog").scrollTop = document.getElementById("chatlog").scrollHeight;
 }
 
-// TODO: Collect message data from firebase upon loading the page and display all messages on news feed.
-// TODO: If there is an added message, get new messages on update and post on local news feed.
+// Collect message and date/time data in real-time from firebase upon loading the page and display all messages on news feed.
+$(document).ready(function() {
+    var messageRef = firebase.database().ref().child("Messages");
+    messageRef.on("child_added", snap => {
+        var postedMessage = snap.child("Message").val();
+        var time = snap.child("Time").val();
+        $("#chat").append("<div id=message>"+postedMessage+"</div>");
+        $("#chat").append("<br /><div id=messageTime>"+time+"</div>");
+    });
+});

@@ -155,3 +155,10 @@ button[id="chat"] {
     text-align: center;
     font-size: 25px;
 }
+
+#messageTime {
+    width: 70%;
+    margin: 5px 10px 0;
+    color: gray;
+    font-size: 10px;
+}
