@@ -36,7 +36,14 @@ function getDate() {
     var day = currentDate.getDate();
     var monthIndex = currentDate.getMonth();
     var year = currentDate.getFullYear();
-    var dateTime = day + ' ' + monthNames[monthIndex] + ' ' + year + ' @ ';
+
+    var username = document.getElementById("username");
+    console.log(username.value);
+    if (username.value == "" || username.value == undefined) {
+        var dateTime = 'Anonymous User - ' + day + ' ' + monthNames[monthIndex] + ' ' + year + ' @ ';
+    } else {
+        var dateTime = username.value + ' - ' + day + ' ' + monthNames[monthIndex] + ' ' + year + ' @ ';
+    }
 
     // Adjust for an hour value less than 10 and pad a 0 to the left of the number.
     if (currentDate.getHours() < 10) {
@@ -78,9 +85,9 @@ $(document).ready(function() {
         var time = snap.child("Time").val();
         var votecount = snap.child("Vote").val();
         $("#chat").append("<div id=message>" + postedMessage + "</div>");
-        $("#chat").append("<div class=upvote><img src='Images/upvote.png' alt='Upvote Back'><img src='Images/upvote_hover.png' class='img-top' alt='Upvote Front'></div>");
-        $("#chat").append("<div id=votecount>"+votecount+"</div>");
-        $("#chat").append("<div class=downvote><img src='Images/downvote.png' alt='Downvote Back'><img src='Images/downvote_hover.png' class='img-top' alt='Downvote Front'></div>");
+        $("#chat").append("<div class=upvote><img src='Images/upvote.png' alt='Upvote Back'><img src='Images/upvote_hover.png' onclick='upvoteCount()' class='img-top' alt='Upvote Front'></div>");
+        $("#chat").append("<div id=votecount>" + votecount + "</div>");
+        $("#chat").append("<div class=downvote><img src='Images/downvote.png' alt='Downvote Back'><img src='Images/downvote_hover.png' onclick='downvoteCount()' class='img-top' alt='Downvote Front'></div>");
         $("#chat").append("<br /><div id=messageTime>" + time + "</div><br />");
         scrollToBottom();
     });
@@ -101,3 +108,11 @@ $('#textarea').keydown(function(e) {
         });
     }
 });
+
+function upvoteCount() {
+
+}
+
+function downvoteCount() {
+
+}
